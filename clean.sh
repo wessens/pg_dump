@@ -16,7 +16,7 @@ cd "$DIR" || exit 1
 FILES=$(find . -maxdepth 1 -type f)
 
 # Sort the files by modification time in descending order
-SORTED=$(echo "$FILES" | xargs stat --format '%Y %n' | sort -rn | cut -d ' ' -f 2-)
+SORTED=$(echo "$FILES" | xargs -I{} sh -c 'echo $(stat -c "%Y %n" "{}")' | sort -rn | cut -d ' ' -f 2-)
 
 # Count the number of files
 COUNT=$(echo "$SORTED" | wc -l)
@@ -33,7 +33,7 @@ for FILE in $SORTED; do
     if [ $i -le $KEEP ]; then
         # Keep the file
         echo "Keeping $FILE"
-    elif [ $(date +%s) -le $(stat -c %Y "$FILE") + $MAX_AGE ]; then
+    elif (( $(date +%s) <= $(stat -c %Y "$FILE") + $MAX_AGE )); then
         # File is newer than MAX_AGE, so keep it
         echo "Keeping $FILE"
     else
