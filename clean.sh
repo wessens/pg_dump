@@ -33,7 +33,7 @@ for FILE in $SORTED; do
     if [ $i -le $KEEP ]; then
         # Keep the file
         echo "Keeping $FILE"
-    elif (( $(date +%s) <= $(stat -c %Y "$FILE") + $MAX_AGE )); then
+    elif $(( $(date +%s) <= $(stat -c %Y "$FILE") + $MAX_AGE )); then
         # File is newer than MAX_AGE, so keep it
         echo "Keeping $FILE"
     else
