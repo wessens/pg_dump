@@ -1,8 +1,8 @@
 FROM alpine:3.16.2
 
-RUN apk add --no-cache postgresql-client
+RUN apk add --no-cache postgresql-client curl
 
-COPY .env pg_dump.sh clean.sh main.sh /root/
+COPY .env pull_webhook.sh pg_dump.sh clean.sh main.sh /root/
 
 RUN chmod 755 /root/pg_dump.sh
 
