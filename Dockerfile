@@ -18,4 +18,4 @@ RUN crontab -l > mycron && \
 
 WORKDIR /root
 
-ENTRYPOINT ["sh", "pull_webhook.sh"]
+ENTRYPOINT ["sh", "pull_webhook.sh", "Some message here"]
