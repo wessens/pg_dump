@@ -9,7 +9,7 @@ RUN chmod 755 /root/pg_dump.sh
 RUN chmod 755 /root/clean.sh
 
 RUN crontab -l > mycron && \
-	echo "0 * * * * /root/pg_dump.sh" >> mycron && \
+	echo "0 * * * * /root/main.sh" >> mycron && \
 	crontab mycron && \
 	rm mycron && \
 	crond -l 2 -d 8
