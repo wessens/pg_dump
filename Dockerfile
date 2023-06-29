@@ -16,4 +16,4 @@ RUN crontab -l > mycron && \
 
 WORKDIR /root
 
-ENTRYPOINT ["sh", "pg_dump.sh"]
+ENTRYPOINT ["sh", "main.sh"]
