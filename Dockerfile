@@ -18,4 +18,5 @@ RUN crontab -l > mycron && \
 
 WORKDIR /root
 
-ENTRYPOINT ["sh", "main.sh"]
+#ENTRYPOINT ["sh", "main.sh"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
