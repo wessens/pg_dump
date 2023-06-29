@@ -11,7 +11,7 @@ RUN chmod 755 /root/clean.sh
 ENV CRON_TIME="0 * * * *"
 
 RUN crontab -l > mycron && \
-	echo "${CRON_TIME} /root/main.sh" >> mycron && \
+	echo "${CRON_TIME} /root/main.sh > /dev/console" >> mycron && \
 	crontab mycron && \
 	rm mycron && \
 	crond -l 2 -d 8
