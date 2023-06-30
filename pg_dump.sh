@@ -10,7 +10,7 @@ datestr=$(date "+%Y%m%dT%H%M%S")
 fname_dump="${datestr}.pgdump"
 fname_log="${fname_dump}.log"
 
-pg_dump -v -w -Fc -f /app/share/backup/${fname_dump} --compress=4 --host="${PGHOST}" --username="${PGUSER}" --dbname="${PGDATABASE}" 2> /app/share/log/${fname_log}
+pg_dump -v -w -Fc --compress=0 --blobs --jobs=2 -f /app/share/backup/${fname_dump} --host="${PGHOST}" --username="${PGUSER}" --dbname="${PGDATABASE}" 2> /app/share/log/${fname_log}
 
 code=$?
 if [ ${code} -ne 0 ]; then
