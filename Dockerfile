@@ -1,8 +1,8 @@
-FROM alpine:3.16.2
+FROM alpine:3.18
 
 # RUN echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
 
-RUN apk add --no-cache postgresql15-client curl --repository=https://pkgs.alpinelinux.org/package/edge/main
+RUN apk add --no-cache postgresql15-client curl 
 
 COPY .env pull_webhook.sh pg_dump.sh clean.sh main.sh /root/
 
