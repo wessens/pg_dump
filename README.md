@@ -6,7 +6,7 @@ The .env file contains the environment variables that control the behaviour of t
 - PGHOST - the host of the database.
 - PGUSER - the database user.
 - PGPASSWORD - the database password.
-- KEEP - the minimum number of old dumps to keep.
+- KEEP - the minimum number of old dumps to keep. Has precedence over MAX_AGE.
 - MAX_AGE- the maximum age of dumps to keep (in seconds).
 - CRON_TIME - crontab formatted value to run the script. 
 - WEBHOOK_URL - if export fails, you can pull a webhook using curl.
