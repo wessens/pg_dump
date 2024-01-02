@@ -8,7 +8,7 @@ The .env file contains the environment variables that control the behaviour of t
 - PGPASSWORD - the database password
 - KEEP - the minimum number of old dumps to keep
 - MAX_AGE- the minimum age of dumps to keep in seconds
-- CRON_TIME - crontab formatted value to run the script. Not implemented yet
+- CRON_TIME - crontab formatted value to run the script. 
 - WEBHOOK_URL - if export fails, you can pull a webhook using curl
 - API_USER - the webhook user. Header auth is used
 - API_PASSWORD - the webhook password. Header auth is used
